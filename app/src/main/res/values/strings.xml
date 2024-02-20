@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Brain Better</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="pref_key_transition_time" translatable="false">pref_key_transition_time</string>
+    <string name="user_profile_fragment">Will about to make it.</string>
+    <string name="nav_title_home">Home</string>
+    <string name="nav_title_setting">Setting</string>
+    <string name="nav_title_profile">Profile</string>
+    <string name="nav_title_share">Share app</string>
+    <string name="nav_title_tools">Tools</string>
+    <string name="nav_title_toggle_theme">Toggle Theme</string>
+    <string name="title_topic_course">Design Thinking</string>
+    <string name="number_courses">19 courses</string>
+    <string name="msg_splash">EducationApp</string>
+    <string name="title_hey">Hey, What would you like to learn today ?</string>
+    <string name="title_login">Hey, Welcome to Brain Better</string>
+    <string name="title_profile">Hey, Check your meeting?</string>
+    <string name="title_profile_title">Hey,\nLets check your profile…</string>
+    <string name="edt_search">Search Here</string>
+    <string name="title_course_design">Design Thinking</string>
+    <string name="title_course_design_count">19 courses</string>
+    <string name="title_course_coding">Coding</string>
+    <string name="title_course_coding_count">21 courses</string>
+    <string name="title_find_courses">Find your \nmatches courses</string>
+    <string name="title_courses_available">10 course available</string>
+    <string name="title_popular_courses">Popular Courses ...</string>
+    <string name="more">. . .</string>
+    <string name="hello_message">Hello, Amit</string>
+    <string name="percentage_course">75% Completed</string>
+
+
+    <string name="text_see_more">See All</string>
+    <string name="imageAccess">Image</string>
+    <string name="message_banner">Refer your friends and\n earn free course *</string>
+    <string name="title_drawer">Android developer</string>
+    <string name="email_drawer">devhunter@movidev.com</string>
+    <string name="title_menu">Menu</string>
+    <string name="bottom_menu_title_courses">Courses</string>
+    <string name="bottom_menu_title_conference">Conference</string>
+    <string name="bottom_menu_title_profile">Profile</string>
+    <string name="bottom_menu_title_home">Home</string>
+    <string name="bottom_menu_title_search">Search</string>
+    <string name="title_user">User</string>
+    <string name="title_tutorials">Tutorials</string>
+    <string name="title_home_message">Continue to \nCourse...</string>
+    <string name="title_course">Design Basic</string>
+    <string name="course_details">Learn design basics.</string>
+    <string name="meet_text">Meeting List</string>
+    <string name="enter_a_room_code">Enter a room code</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="phone_number">Mobile number</string>
+    <string name="create_join">Create / Join</string>
+    <string name="btn_sign_up">Sign up</string>
+    <string name="login">Login</string>
+    <string name="share_code">Share Code</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string name="user_name">Amit Kumar</string>
+    <string name="user_information">User information</string>
+    <string name="sign_up">You need to sign up here.</string>
+    <string name="axxxxxxa_gmail_com">amitkumar@gmail.com</string>
+    <string name="email">Email</string>
+    <string name="mobile">Mobile</string>
+    <string name="mobile_number">7700000007</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="dob">07_02_2003</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="log_in">Log in</string>
+    <string name="image">Image</string>
+    <string name="social_media">Social Media</string>
+    <string name="user_age">Age</string>
+    <string name="_21">21</string>
+    <string name="linkedin">linkedIn</string>
+    <string name="gmail">gmail</string>
+    <string name="whatsapp">whatsapp</string>
+
+    <string-array name="gender_options">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+</resources>

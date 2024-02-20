@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_margin="10dp"
+    android:background="@drawable/bg_edittext"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tvItem_MeetingId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bariol_bold"
+        android:hint="Meeting ID"
+        android:text="@{meeting.meetingId}"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvItem_meeting_dateTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/bariol_regular"
+        android:hint="Date Time"
+        android:text="@{meeting.dateTime}"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvItem_MeetingId" />
+
+    <ImageView
+        android:id="@+id/img_item_meeting_delete"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:src="@android:drawable/ic_menu_delete"
+        app:layout_constraintEnd_toEndOf="@+id/tvItem_MeetingId" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

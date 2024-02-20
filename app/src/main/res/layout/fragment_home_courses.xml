@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/parent.contentLayout"
+        android:paddingLeft="@dimen/normalPadding"
+        android:paddingRight="@dimen/normalPadding"
+        android:paddingBottom="@dimen/normalPadding">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:minHeight="150dp"
+                        app:cardBackgroundColor="@color/color1"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="@dimen/card_maincourse_elevation"
+                        app:cardPreventCornerOverlap="false">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/title_home_message"
+                                android:textColor="@color/whiteBodyColor"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+
+                            <ProgressBar
+                                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                                android:layout_width="180dp"
+                                android:layout_height="5dp"
+                                android:layout_marginTop="15dp"
+                                android:progress="60"
+                                android:progressDrawable="@drawable/progress_drawable" />
+
+                            <TextView
+                                android:id="@+id/tvPercentage"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:format="%d"
+                                android:text="@string/percentage_course"
+                                android:textColor="@color/whiteBodyColor"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                tools:format="75" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/imageAccess"
+                        android:cropToPadding="true"
+                        android:elevation="@dimen/card_image_elevation"
+                        android:src="@drawable/header_image" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_home_share_and_earn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="60dp"
+                        android:background="@drawable/refer_earn_button"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:text="@string/message_banner"
+                            android:textAlignment="center"
+                            android:textColor="@color/whiteTextColor"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/imageAccess"
+                        android:cropToPadding="true"
+                        android:src="@drawable/refer_icon" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView
+                        style="@style/viewParent.headerText"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="@string/title_popular_courses" />
+
+                    <TextView
+                        android:id="@+id/tv_home_popular_course_see_all"
+                        style="@style/viewParent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/text_see_more"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="@dimen/headerMoreTextSize"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_popular_course"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView
+                        style="@style/viewParent.headerText"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="@string/title_tutorials" />
+
+                    <TextView
+                        android:id="@+id/tv_home_tutorials_see_all"
+                        style="@style/viewParent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/text_see_more"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="@dimen/headerMoreTextSize"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_tutorials_course"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

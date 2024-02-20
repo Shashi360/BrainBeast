@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020. rogergcc
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:orientation="horizontal">
+
+    <ImageView
+        android:background="@drawable/play_course"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/top_text_subtitle_card"
+        android:src="@drawable/ic_play"
+        android:layout_width="wrap_content"
+        android:padding="@dimen/activity_vertical_margin"
+        android:contentDescription="@string/imageAccess" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/viewParent.headerText"
+            android:fontFamily="@font/bariol_regular"
+            android:textSize="20sp"
+            android:text="@string/title_course"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:fontFamily="@font/bariol_regular"
+            android:textColor="@color/bottomNavigationTextColor"
+            android:text="@string/course_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:background="@color/nav_bar_color"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+    </LinearLayout>
+</LinearLayout>

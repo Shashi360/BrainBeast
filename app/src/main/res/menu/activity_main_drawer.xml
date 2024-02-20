@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/nav_title_home" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_menu_profile"
+            android:title="@string/nav_title_profile" />
+<!--        <item-->
+<!--            android:id="@+id/nav_setting"-->
+<!--            android:icon="@android:drawable/ic_menu_manage"-->
+<!--            android:title="@string/nav_title_setting" />-->
+        <item
+            android:id="@+id/nav_share_app"
+            android:icon="@drawable/ic_menu_share"
+            android:title="@string/nav_title_share" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@android:drawable/presence_offline"
+            android:title="@string/logout" />
+    </group>
+
+    <!--    <item android:title="@string/nav_title_toggle_theme">-->
+    <!--        <menu>-->
+    <!--            <item-->
+    <!--                android:id="@+id/nav_share"-->
+    <!--                android:icon="@drawable/ic_menu_share"-->
+    <!--                android:title="@string/nav_title_share"-->
+    <!--                android:visible="false" />-->
+    <!--            <item-->
+    <!--                android:id="@+id/nav_dark_mode"-->
+    <!--                android:icon="@android:drawable/ic_menu_day"-->
+    <!--                android:title="@string/nav_title_toggle_theme" />-->
+    <!--        </menu>-->
+    <!--    </item>-->
+
+</menu>
