@@ -1,6 +1,3 @@
-/*
- * Copyright (c) 2021. roger
- */
 package com.education.brainbeast
 
 
