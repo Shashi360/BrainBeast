@@ -7,10 +7,15 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
+import com.education.brainbeast.MainActivity.Companion.TAG
 import com.education.brainbeast.databinding.ActivitySignUpBinding
 import com.education.brainbeast.ui.education.ui.menuprofile.User
 import com.education.brainbeast.ui.education.ui.menuprofile.UserRoomDatabase
@@ -69,14 +74,34 @@ class SignUpActivity : AppCompatActivity() {
 
 
     private fun signUp() {
+        val genderSelection = resources.getStringArray(R.array.gender_options)
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_dropdown_item, genderSelection
+        )
+        binding.signSpinnerGender.adapter = adapter
+
+        binding.signSpinnerGender.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View, position: Int, id: Long
+            ) {
+                Log.d(TAG, "onItemSelected: $genderSelection")
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // write code to perform some action
+            }
+        }
+
         val name = binding.etSignProfileUserName.text.toString().trim()
         val ageText = binding.etSignProfileUserAge.text.toString().trim()
-        val gender = "Male" // Update with selected gender
         val dob = binding.tvSignProfileUserDob.text.toString().trim()
         val mobile = binding.etSignProfileUserMobile.text.toString().trim()
         val email = binding.etSignProfileUserEmail.text.toString().trim()
 
-        if (name.isEmpty() || ageText.isEmpty() || dob.isEmpty() || mobile.isEmpty() || email.isEmpty()) {
+        if (name.isEmpty() || ageText.isEmpty() || dob.isEmpty() || mobile.isEmpty() || email.isEmpty() || genderSelection.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             return
         }
@@ -92,11 +117,12 @@ class SignUpActivity : AppCompatActivity() {
             return
         }
 
+
         // Save user data to Room database
         val user = User(
             name = name,
             age = age,
-            gender = gender,
+            gender = genderSelection.toString(),
             dob = dob,
             mobile = mobile,
             email = email,

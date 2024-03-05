@@ -29,6 +29,8 @@
             android:layout_height="150dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/image_circle"
             android:src="@drawable/ic_user" />
 
     </LinearLayout>

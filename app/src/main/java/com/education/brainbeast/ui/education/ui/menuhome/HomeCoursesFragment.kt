@@ -171,6 +171,6 @@ class HomeCoursesFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        youtubePlayerView.release()
+//        youtubePlayerView.release()
     }
 }

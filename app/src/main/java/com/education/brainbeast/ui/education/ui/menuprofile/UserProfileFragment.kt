@@ -277,6 +277,7 @@ class UserProfileFragment : Fragment() {
             etProfileUserDob.setText(userData.dob)
             etProfileUserMobile.setText(userData.mobile)
             etProfileUserEmail.setText(userData.email)
+            tvProfileUserNameHeader.text = userData.name
 
             // Set Spinner selection based on user's gender
             val genderArray = resources.getStringArray(R.array.gender_options)
