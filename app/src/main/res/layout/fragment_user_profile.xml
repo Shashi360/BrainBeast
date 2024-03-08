@@ -78,12 +78,13 @@
 
                 <TextView
                     android:id="@+id/tv_profile_user_name_header"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bariol_regular"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="20sp"
+                    android:singleLine="true"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -103,7 +104,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/light_orange"
+            android:background="@drawable/bg_roung_edittext"
             android:orientation="vertical"
             android:padding="15dp">
 
@@ -131,122 +132,97 @@
                 android:orientation="vertical"
                 android:padding="10dp">
                 <!-- User name -->
-                <com.google.android.material.textfield.TextInputLayout
+                <EditText
+                    android:id="@+id/et_profile_user_name"
                     android:layout_width="match_parent"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_profile_user_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/bariol_bold"
-                        android:hint="@string/title_user"
-                        android:textColorHint="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_roung_edittext"
+                    android:drawableStart="@drawable/image_circle"
+                    android:fontFamily="@font/bariol_bold"
+                    android:hint="@string/title_user"
+                    android:paddingStart="10dp"
+                    android:textColorHint="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
 
                 <!-- Gender -->
-                <LinearLayout
+
+
+                <EditText
+                    android:id="@+id/et_profile_user_gender"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/bariol_bold"
-                        android:gravity="center_vertical"
-                        android:text="@string/gender"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <Spinner
-                        android:id="@+id/spinner_gender"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/bariol_regular"
-                        android:gravity="end"
-                        android:textColor="@color/black"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
+                    android:background="@drawable/bg_roung_edittext"
+                    android:drawableStart="@drawable/image_circle"
+                    android:fontFamily="@font/bariol_bold"
+                    android:hint="@string/gender"
+                    android:paddingStart="10dp"
+                    android:textColorHint="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <!-- Age -->
-                <com.google.android.material.textfield.TextInputLayout
+                <EditText
+                    android:id="@+id/et_profile_user_age"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_profile_user_age"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/bariol_bold"
-                        android:hint="@string/user_age"
-                        android:inputType="phone"
-                        android:textColorHint="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_roung_edittext"
+                    android:drawableStart="@drawable/image_circle"
+                    android:fontFamily="@font/bariol_bold"
+                    android:hint="@string/user_age"
+                    android:paddingStart="10dp"
+                    android:textColorHint="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <!-- Date of Birth -->
-                <com.google.android.material.textfield.TextInputLayout
+                <EditText
+                    android:id="@+id/et_profile_user_dob"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_profile_user_dob"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/bariol_bold"
-                        android:hint="@string/date_of_birth"
-                        android:textColorHint="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_roung_edittext"
+                    android:drawableStart="@drawable/image_circle"
+                    android:fontFamily="@font/bariol_bold"
+                    android:hint="@string/date_of_birth"
+                    android:paddingStart="10dp"
+                    android:textColorHint="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <!-- Mobile Number -->
-                <com.google.android.material.textfield.TextInputLayout
+                <EditText
+                    android:id="@+id/et_profile_user_mobile"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_profile_user_mobile"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/bariol_bold"
-                        android:hint="@string/mobile"
-                        android:inputType="phone"
-                        android:textColorHint="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_roung_edittext"
+                    android:drawableStart="@drawable/image_circle"
+                    android:fontFamily="@font/bariol_bold"
+                    android:hint="@string/mobile"
+                    android:paddingStart="10dp"
+                    android:textColorHint="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <!-- Email -->
-                <com.google.android.material.textfield.TextInputLayout
+                <EditText
+                    android:id="@+id/et_profile_user_email"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_roung_edittext"
+                    android:drawableStart="@drawable/image_circle"
+                    android:fontFamily="@font/bariol_bold"
+                    android:hint="@string/email"
+                    android:paddingStart="10dp"
+                    android:textColorHint="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/et_profile_user_email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/bariol_bold"
-                        android:hint="@string/email"
-                        android:textColorHint="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 

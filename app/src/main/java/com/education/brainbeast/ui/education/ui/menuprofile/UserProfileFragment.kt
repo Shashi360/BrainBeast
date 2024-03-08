@@ -10,8 +10,6 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -215,40 +213,40 @@ class UserProfileFragment : Fragment() {
         val email = binding.etProfileUserEmail.text.toString()
         val profileImgUrl = selectedProfileImageUri
 
-        val spinner = binding.spinnerGender
-
-        // Create ArrayAdapter and set it to the Spinner
-        ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.gender_options,
-            android.R.layout.simple_spinner_dropdown_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinner.adapter = adapter
-        }
-        // Set up a listener to handle item selections
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                // Retrieve the selected item
-                selectedGender = parent.getItemAtPosition(position).toString()
-
-                // Update the User object with the selected gender
-                val currentUser = userProfileViewModel.userData.value ?: User()
-                currentUser.gender = selectedGender
-
-                // Save the updated user data to the Room database
-                userProfileViewModel.saveUserData(currentUser)
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // Handle no item selected case
-            }
-        }
+//        val spinner = binding.spinnerGender
+//
+//        // Create ArrayAdapter and set it to the Spinner
+//        ArrayAdapter.createFromResource(
+//            requireContext(),
+//            R.array.gender_options,
+//            android.R.layout.simple_spinner_dropdown_item
+//        ).also { adapter ->
+//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//            spinner.adapter = adapter
+//        }
+//        // Set up a listener to handle item selections
+//        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+//            override fun onItemSelected(
+//                parent: AdapterView<*>,
+//                view: View?,
+//                position: Int,
+//                id: Long
+//            ) {
+//                // Retrieve the selected item
+//                selectedGender = parent.getItemAtPosition(position).toString()
+//
+//                // Update the User object with the selected gender
+//                val currentUser = userProfileViewModel.userData.value ?: User()
+//                currentUser.gender = selectedGender
+//
+//                // Save the updated user data to the Room database
+//                userProfileViewModel.saveUserData(currentUser)
+//            }
+//
+//            override fun onNothingSelected(parent: AdapterView<*>) {
+//                // Handle no item selected case
+//            }
+//        }
 
         // Create a User object with the retrieved information
         return User(
@@ -280,9 +278,9 @@ class UserProfileFragment : Fragment() {
             tvProfileUserNameHeader.text = userData.name
 
             // Set Spinner selection based on user's gender
-            val genderArray = resources.getStringArray(R.array.gender_options)
-            val genderPosition = genderArray.indexOf(userData.gender)
-            spinnerGender.setSelection(genderPosition)
+//            val genderArray = resources.getStringArray(R.array.gender_options)
+//            val genderPosition = genderArray.indexOf(userData.gender)
+//            spinnerGender.setSelection(genderPosition)
         }
 
 

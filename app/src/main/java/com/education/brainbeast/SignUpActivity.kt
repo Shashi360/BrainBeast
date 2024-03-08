@@ -32,6 +32,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
     private var profileImageBitmap: Bitmap? = null
+    private var genderSelection: Array<String>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +48,26 @@ class SignUpActivity : AppCompatActivity() {
         }
         binding.tvSignProfileUserDob.setOnClickListener {
             showDatePickerDialog()
+        }
+
+        genderSelection = resources.getStringArray(R.array.gender_options)
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_dropdown_item, genderSelection!!
+        )
+        binding.signSpinnerGender.adapter = adapter
+        binding.signSpinnerGender.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View, position: Int, id: Long
+            ) {
+                Log.d(TAG, "onItemSelected: $genderSelection")
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // write code to perform some action
+            }
         }
     }
 
@@ -74,26 +95,7 @@ class SignUpActivity : AppCompatActivity() {
 
 
     private fun signUp() {
-        val genderSelection = resources.getStringArray(R.array.gender_options)
-        val adapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_spinner_dropdown_item, genderSelection
-        )
-        binding.signSpinnerGender.adapter = adapter
 
-        binding.signSpinnerGender.onItemSelectedListener = object :
-            AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View, position: Int, id: Long
-            ) {
-                Log.d(TAG, "onItemSelected: $genderSelection")
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // write code to perform some action
-            }
-        }
 
         val name = binding.etSignProfileUserName.text.toString().trim()
         val ageText = binding.etSignProfileUserAge.text.toString().trim()
@@ -101,7 +103,7 @@ class SignUpActivity : AppCompatActivity() {
         val mobile = binding.etSignProfileUserMobile.text.toString().trim()
         val email = binding.etSignProfileUserEmail.text.toString().trim()
 
-        if (name.isEmpty() || ageText.isEmpty() || dob.isEmpty() || mobile.isEmpty() || email.isEmpty() || genderSelection.isEmpty()) {
+        if (name.isEmpty() || ageText.isEmpty() || dob.isEmpty() || mobile.isEmpty() || email.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             return
         }

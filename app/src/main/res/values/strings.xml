@@ -45,7 +45,7 @@
     <string name="bottom_menu_title_profile">Profile</string>
     <string name="bottom_menu_title_home">Home</string>
     <string name="bottom_menu_title_search">Search</string>
-    <string name="title_user">User</string>
+    <string name="title_user">Name</string>
     <string name="title_tutorials">Tutorials</string>
     <string name="title_home_message">Continue to \nCourse...</string>
     <string name="title_course">Design Basic</string>
@@ -63,6 +63,7 @@
     <string name="user_name">Amit Kumar</string>
     <string name="user_information">User information</string>
     <string name="sign_up">You need to sign up here.</string>
+    <string name="sign_in">Want to go back, Sign-In?</string>
     <string name="axxxxxxa_gmail_com">amitkumar@gmail.com</string>
     <string name="email">Email</string>
     <string name="mobile">Mobile</string>

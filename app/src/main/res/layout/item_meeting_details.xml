@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:layout_margin="10dp"
-    android:background="@drawable/bg_edittext"
+    android:background="@drawable/bg_roung_edittext"
     android:padding="10dp">
 
     <TextView
