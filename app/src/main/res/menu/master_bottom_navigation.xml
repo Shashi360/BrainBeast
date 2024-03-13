@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/menuDrawer"
-        android:icon="@drawable/ic_menu_main"
-        android:title="@string/title_menu" />
+
 
     <item
         android:id="@+id/homeCoursesFragment"
@@ -21,9 +18,13 @@
         android:id="@+id/joinVideoCallFragment"
         android:icon="@android:drawable/stat_sys_headset"
         android:title="@string/bottom_menu_title_conference" />
-   <!-- <item
+    <item
         android:id="@+id/userProfileFragment"
-        android:icon="@drawable/ic_user_icon"
-        android:title="@string/bottom_menu_title_profile" />-->
+        android:icon="@drawable/ic_menu_profile"
+        android:title="@string/title_profile_tag" />
+    <!-- <item
+         android:id="@+id/userProfileFragment"
+         android:icon="@drawable/ic_user_icon"
+         android:title="@string/bottom_menu_title_profile" />-->
 
 </menu>

@@ -20,6 +20,7 @@
     <string name="title_hey">Hey, What would you like to learn today ?</string>
     <string name="title_login">Hey, Welcome to Brain Better</string>
     <string name="title_profile">Hey, Check your meeting?</string>
+    <string name="title_profile_tag">Profile</string>
     <string name="title_profile_title">Hey,\nLets check your profile…</string>
     <string name="edt_search">Search Here</string>
     <string name="title_course_design">Design Thinking</string>

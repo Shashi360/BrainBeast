@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -276,13 +277,8 @@ class UserProfileFragment : Fragment() {
             etProfileUserMobile.setText(userData.mobile)
             etProfileUserEmail.setText(userData.email)
             tvProfileUserNameHeader.text = userData.name
-
-            // Set Spinner selection based on user's gender
-//            val genderArray = resources.getStringArray(R.array.gender_options)
-//            val genderPosition = genderArray.indexOf(userData.gender)
-//            spinnerGender.setSelection(genderPosition)
+            etProfileUserGender.text = Editable.Factory.getInstance().newEditable(userData.gender)
         }
-
 
         // Load the profile image using Glide
         Glide.with(requireContext())

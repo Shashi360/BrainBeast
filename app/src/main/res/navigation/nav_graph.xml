@@ -35,6 +35,6 @@
     <fragment
         android:id="@+id/userProfileFragment"
         android:name="com.education.brainbeast.ui.education.ui.menuprofile.UserProfileFragment"
-        android:label="fragment_matches_courses"
+        android:label="user_profile_fragment"
         tools:layout="@layout/fragment_user_profile" />
 </navigation>

@@ -18,6 +18,7 @@ import com.education.brainbeast.ui.education.ui.helpers.BottomNavigationBehavior
 import com.education.brainbeast.ui.education.ui.menucourses.CoursesStaggedFragment
 import com.education.brainbeast.ui.education.ui.menuhome.HomeCoursesFragment
 import com.education.brainbeast.ui.education.ui.menujoinvideoconference.JoinVideoConferenceFragment
+import com.education.brainbeast.ui.education.ui.menuprofile.UserProfileFragment
 import com.education.brainbeast.ui.education.ui.menusearch.MatchesCoursesFragment
 import com.education.brainbeast.ui.education.ui.utils.ConnectionLiveData
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -34,11 +35,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private val mOnNavigationItemSelectedListener =
         NavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.menuDrawer -> toggleDrawer()
                 R.id.homeCoursesFragment -> loadFragment(HomeCoursesFragment())
                 R.id.coursesStaggedFragment -> loadFragment(CoursesStaggedFragment())
                 R.id.searchMatchesCoursesFragment -> loadFragment(MatchesCoursesFragment())
                 R.id.joinVideoCallFragment -> loadFragment(JoinVideoConferenceFragment())
+                R.id.userProfileFragment -> loadFragment(UserProfileFragment())
             }
 
             // Close the drawer after an item is selected
@@ -95,13 +96,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val navController = navHostFragment.navController
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.userProfileFragment) {
-                bottomNavigationView.visibility = View.GONE
-            } else {
-                bottomNavigationView.visibility = View.VISIBLE
-            }
-        }
+//        navController.addOnDestinationChangedListener { _, destination, _ ->
+//            if (destination.id == R.id.userProfileFragment) {
+//                bottomNavigationView.visibility = View.GONE
+//            } else {
+//                bottomNavigationView.visibility = View.VISIBLE
+//            }
+//        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

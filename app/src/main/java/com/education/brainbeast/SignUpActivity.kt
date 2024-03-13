@@ -32,7 +32,8 @@ class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
     private var profileImageBitmap: Bitmap? = null
-    private var genderSelection: Array<String>? = null
+    private lateinit var genderSelection: Array<String>
+    private var selectedGender: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,11 +50,16 @@ class SignUpActivity : AppCompatActivity() {
         binding.tvSignProfileUserDob.setOnClickListener {
             showDatePickerDialog()
         }
+        binding.tvSwitchToSignIn.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         genderSelection = resources.getStringArray(R.array.gender_options)
         val adapter = ArrayAdapter(
             this,
-            android.R.layout.simple_spinner_dropdown_item, genderSelection!!
+            android.R.layout.simple_spinner_dropdown_item, genderSelection
         )
         binding.signSpinnerGender.adapter = adapter
         binding.signSpinnerGender.onItemSelectedListener = object :
@@ -62,11 +68,12 @@ class SignUpActivity : AppCompatActivity() {
                 parent: AdapterView<*>,
                 view: View, position: Int, id: Long
             ) {
-                Log.d(TAG, "onItemSelected: $genderSelection")
+                selectedGender = parent.getItemAtPosition(position).toString()
+                Log.d(TAG, "Selected gender: $selectedGender")
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
-                // write code to perform some action
+                // Write code to perform some action
             }
         }
     }
@@ -95,8 +102,6 @@ class SignUpActivity : AppCompatActivity() {
 
 
     private fun signUp() {
-
-
         val name = binding.etSignProfileUserName.text.toString().trim()
         val ageText = binding.etSignProfileUserAge.text.toString().trim()
         val dob = binding.tvSignProfileUserDob.text.toString().trim()
@@ -124,7 +129,7 @@ class SignUpActivity : AppCompatActivity() {
         val user = User(
             name = name,
             age = age,
-            gender = genderSelection.toString(),
+            gender = selectedGender.toString(),
             dob = dob,
             mobile = mobile,
             email = email,
@@ -176,6 +181,7 @@ class SignUpActivity : AppCompatActivity() {
 
         // Insert the user into the database using a coroutine
         CoroutineScope(Dispatchers.IO).launch {
+            db.userDao().deleteAll()
             db.userDao().insert(user)
         }
     }
