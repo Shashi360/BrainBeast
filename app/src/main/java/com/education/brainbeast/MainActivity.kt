@@ -3,7 +3,6 @@ package com.education.brainbeast
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -13,16 +12,21 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import androidx.room.Room
 import com.education.brainbeast.databinding.ActivityMainBinding
 import com.education.brainbeast.ui.education.ui.helpers.BottomNavigationBehavior
 import com.education.brainbeast.ui.education.ui.menucourses.CoursesStaggedFragment
 import com.education.brainbeast.ui.education.ui.menuhome.HomeCoursesFragment
 import com.education.brainbeast.ui.education.ui.menujoinvideoconference.JoinVideoConferenceFragment
 import com.education.brainbeast.ui.education.ui.menuprofile.UserProfileFragment
+import com.education.brainbeast.ui.education.ui.menuprofile.UserRoomDatabase
 import com.education.brainbeast.ui.education.ui.menusearch.MatchesCoursesFragment
 import com.education.brainbeast.ui.education.ui.utils.ConnectionLiveData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 //UI design - https://dribbble.com/shots/6482664-Design-Course-App-UI
@@ -108,7 +112,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_home -> findNavController(R.id.nav_host_fragment).navigate(R.id.homeCoursesFragment)
-            R.id.nav_profile -> findNavController(R.id.nav_host_fragment).navigate(R.id.userProfileFragment)
+//            R.id.nav_profile -> findNavController(R.id.nav_host_fragment).navigate(R.id.userProfileFragment)
             // R.id.nav_setting -> {}
             R.id.nav_share_app -> shareApp()
             R.id.nav_logout -> logoutUser()
@@ -131,6 +135,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun logoutUser() {
+        // Get a reference to the database
+        val db =
+            Room.databaseBuilder(applicationContext, UserRoomDatabase::class.java, "user-db")
+                .build()
+
+        // Insert the user into the database using a coroutine
+        CoroutineScope(Dispatchers.IO).launch {
+            db.userDao().deleteAll()
+        }
         // Redirect user to login screen
         val intent = Intent(this, SplashScreen::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

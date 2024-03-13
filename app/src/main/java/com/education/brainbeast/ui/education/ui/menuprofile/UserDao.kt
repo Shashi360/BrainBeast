@@ -23,4 +23,7 @@ interface UserDao {
 
     @Query("DELETE FROM users")
     suspend fun deleteAll()
+
+    @Query("SELECT COUNT(*) FROM users")
+    suspend fun getUserCount(): Int
 }

@@ -181,7 +181,7 @@ class SignUpActivity : AppCompatActivity() {
 
         // Insert the user into the database using a coroutine
         CoroutineScope(Dispatchers.IO).launch {
-            db.userDao().deleteAll()
+        //  db.userDao().deleteAll()
             db.userDao().insert(user)
         }
     }

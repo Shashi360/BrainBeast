@@ -42,11 +42,6 @@ class UserProfileFragment : Fragment() {
         _binding = FragmentUserProfileBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        binding.imgProfileBack.setOnClickListener {
-            val intent = Intent(requireActivity(), MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-        }
         binding.imgProfileUserGmail.setOnClickListener {
             openGmail()
         }
@@ -89,20 +84,20 @@ class UserProfileFragment : Fragment() {
         }
 
         // Click listener for the save button
-        binding.imgProfileEdit.setOnClickListener {
-            // Get the updated user information from the UI
-            val updatedUser = getUserDataFromUI()
-
-            if (validateUserData(updatedUser)) {
-                // Save the updated user information to the database
-                userProfileViewModel.saveUserData(updatedUser)
-                Toast.makeText(
-                    requireActivity(),
-                    "User data saved successfully",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
+//        binding.imgProfileEdit.setOnClickListener {
+//            // Get the updated user information from the UI
+//            val updatedUser = getUserDataFromUI()
+//
+//            if (validateUserData(updatedUser)) {
+//                // Save the updated user information to the database
+//                userProfileViewModel.saveUserData(updatedUser)
+//                Toast.makeText(
+//                    requireActivity(),
+//                    "User data saved successfully",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }
+//        }
     }
 
     private fun showDatePickerDialog() {

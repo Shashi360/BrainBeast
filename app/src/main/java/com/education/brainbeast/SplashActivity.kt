@@ -8,6 +8,11 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
+import com.education.brainbeast.ui.education.ui.menuprofile.UserRoomDatabase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 //Ref - https://github.com/MtsRovari/SplashScreen/tree/master
 
@@ -16,6 +21,10 @@ class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
+
+        val db =
+            Room.databaseBuilder(applicationContext, UserRoomDatabase::class.java, "user-db")
+                .build()
 
         val hold = AnimationUtils.loadAnimation(this, R.anim.hold)
 
@@ -26,12 +35,18 @@ class SplashScreen : AppCompatActivity() {
             override fun onAnimationEnd(animation: Animation) {
                 if (!isFirstAnimation) {
                     imageView.clearAnimation()
-                    val intent = Intent(
-                        this@SplashScreen,
-                        LoginActivity::class.java
-                    )
-                    startActivity(intent)
-                    finish()
+
+                    CoroutineScope(Dispatchers.IO).launch {
+                        val userExists =
+                            db.userDao().getUserCount() > 0
+                        val intent = if (userExists) {
+                            Intent(this@SplashScreen, MainActivity::class.java)
+                        } else {
+                            Intent(this@SplashScreen, LoginActivity::class.java)
+                        }
+                        startActivity(intent)
+                        finish()
+                    }
                 }
                 isFirstAnimation = true
             }
