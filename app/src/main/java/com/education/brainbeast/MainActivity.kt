@@ -53,6 +53,56 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             true
         }
 
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Set the toolbar as ActionBar
+        setSupportActionBar(binding.toolbar)
+
+        // Initialize ActionBarDrawerToggle
+        val toggle = ActionBarDrawerToggle(
+            this,
+            binding.drawerLayout,
+            binding.toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
+
+        // Set the DrawerListener
+        binding.drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        // Set the navigation item selection listener
+        binding.navView.setNavigationItemSelectedListener(this)
+
+        // Observe network connection
+        connectionLiveData = ConnectionLiveData(this)
+        connectionLiveData.observe(this) { isNetworkAvailable ->
+            isNetworkAvailable?.let { internetConnected ->
+                val message = if (internetConnected) "Internet connected" else "No Internet"
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // Setup navigation
+        setupNavigation()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                toggleDrawer() // Toggle drawer when toolbar home button is clicked
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun toggleDrawer() {
         val drawer = binding.drawerLayout
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -62,31 +112,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        val toggle = ActionBarDrawerToggle(
-            this,
-            binding.drawerLayout,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
-        )
-        binding.drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-        binding.navView.setNavigationItemSelectedListener(this)
-        connectionLiveData = ConnectionLiveData(this)
-        connectionLiveData.observe(this) { isNetworkAvailable ->
-            isNetworkAvailable?.let { internetConnected ->
-                if (internetConnected) {
-                    Toast.makeText(this, "Internet connected", Toast.LENGTH_SHORT).show()
-                } else Toast.makeText(this, "No Internet", Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        setupNavigation()
+    override fun setTitle(title: CharSequence?) {
+        super.setTitle(title)
+        binding.toolbar.title = title // Set the title on the toolbar
     }
-
 
     private fun setupNavigation() {
         val layoutParams = binding.appBarMain.bottomNavigationView.layoutParams
@@ -99,14 +128,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
-
-//        navController.addOnDestinationChangedListener { _, destination, _ ->
-//            if (destination.id == R.id.userProfileFragment) {
-//                bottomNavigationView.visibility = View.GONE
-//            } else {
-//                bottomNavigationView.visibility = View.VISIBLE
-//            }
-//        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
