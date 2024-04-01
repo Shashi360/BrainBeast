@@ -16,7 +16,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.education.brainbeast.MainActivity
 import com.education.brainbeast.R
 import com.education.brainbeast.databinding.FragmentUserProfileBinding
 import com.google.android.material.datepicker.MaterialDatePicker
